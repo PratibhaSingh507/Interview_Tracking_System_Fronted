@@ -40,6 +40,7 @@ class UpdateInterviewComponent extends Component {
             this.setState(
                 {
                     //interviewId: interview.interviewId,   
+                      //interviewId: interview.interviewId,
                     interviewCandidateName: interview.interviewCandidateName,
                     interviewStartTime: interview.interviewStartTime,
                     interviewEndTime: interview.interviewEndTime,
