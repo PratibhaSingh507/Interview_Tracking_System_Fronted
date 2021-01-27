@@ -115,17 +115,21 @@ class CreateInterviewComponent extends Component {
     }
     render() {
         return (
+         
             <div>
+                    
                 <br></br>
                    <div className = "container">
+                
                         <div className = "row">
                             <div className = "card col-md-6 offset-md-3 offset-md-3">
                                 {
                                     this.getTitle()
                                 }
                                 <div className = "card-body">
+                              
                                     <form>
-                                   
+                                    
                                    
                                         <div className = "form-group">
                                             <label> Interview Candidate Name: </label>
@@ -170,9 +174,11 @@ class CreateInterviewComponent extends Component {
                                 </div>
                             </div>
                         </div>
-
+                  
                    </div>
+                 
             </div>
+           
         )
     }
 }

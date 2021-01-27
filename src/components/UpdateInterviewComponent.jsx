@@ -10,9 +10,7 @@ class UpdateInterviewComponent extends Component {
             
             interviewId: this.props.match.params.interviewId,
         
-             
-           
-
+            
                  //  interviewId: '',
             interviewCandidateName: '',
             interviewStartTime: '',
@@ -25,7 +23,7 @@ class UpdateInterviewComponent extends Component {
         
        
 
-        this.changeInterviewIdHandler = this.changeInterviewIdHandler.bind(this);
+       // this.changeInterviewIdHandler = this.changeInterviewIdHandler.bind(this);
          this.changeInterviewCandidateNameHandler = this.changeInterviewCandidateNameHandler.bind(this);
          this.changeInterviewStartTimeHandler = this.changeInterviewStartTimeHandler.bind(this);
          this.changeInterviewEndTimeHandler = this.changeInterviewEndTimeHandler.bind(this);
@@ -43,7 +41,7 @@ class UpdateInterviewComponent extends Component {
             let interview = res.data;
             this.setState(
                 {
-                    //interviewId: interview.interviewId,   
+                   
                       //interviewId: interview.interviewId,
                     interviewCandidateName: interview.interviewCandidateName,
                     interviewStartTime: interview.interviewStartTime,

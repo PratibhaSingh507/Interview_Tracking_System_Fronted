@@ -39,6 +39,7 @@ class ListInterviewComponent extends Component {
 
     render() {
         return (
+            <div className = "container">
             <div>
                  <h2 className="text-center">Interview Schedule List</h2>
                  <div className = "row">
@@ -87,7 +88,7 @@ class ListInterviewComponent extends Component {
                         </table>
 
                  </div>
-
+                 </div>
             </div>
         )
     }
