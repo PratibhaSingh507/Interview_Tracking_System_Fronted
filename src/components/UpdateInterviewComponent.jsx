@@ -12,6 +12,8 @@ class UpdateInterviewComponent extends Component {
         
              
                 //  interviewId: '',
+
+                 //  interviewId: '',
             interviewCandidateName: '',
             interviewStartTime: '',
             interviewEndTime: '',
