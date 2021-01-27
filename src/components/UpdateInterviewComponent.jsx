@@ -11,7 +11,7 @@ class UpdateInterviewComponent extends Component {
             interviewId: this.props.match.params.interviewId,
         
              
-                //  interviewId: '',
+           
 
                  //  interviewId: '',
             interviewCandidateName: '',
