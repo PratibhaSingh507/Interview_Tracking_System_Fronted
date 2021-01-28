@@ -9,17 +9,28 @@ class CreateInterviewComponent extends Component {
         this.state = {
           
             interviewId: this.props.match.params.interviewId,    
-       //     interviewId: '',
+    
             interviewCandidateName: '',
             interviewStartTime: '',
             interviewEndTime: '',
             interviewDate: '',
             interviewLocation: '',
             department: '',
-            email: ''
+            email: '',
+
+            input:{},
+            errors:{}
+           /* interviewCandidateNameErr: "",
+            interviewStartTimeErr: "",
+            interviewEndTimeErr: "",
+            interviewDateErr: "",
+            interviewLocationErr: "",
+            departmentErr: "",
+            emailErr: ""
+*/
         }
       
-      //  this.changeInterviewIdHandler = this.changeInterviewIdHandler.bind(this);
+     
         this.changeInterviewCandidateNameHandler = this.changeInterviewCandidateNameHandler.bind(this);
         this.changeInterviewStartTimeHandler = this.changeInterviewStartTimeHandler.bind(this);
         this.changeInterviewEndTimeHandler = this.changeInterviewEndTimeHandler.bind(this);
@@ -28,9 +39,86 @@ class CreateInterviewComponent extends Component {
         this.changeDepartmentHandler = this.changeDepartmentHandler.bind(this);
         this.changeEmailHandler = this.changeEmailHandler.bind(this);
         this.saveOrUpdateInterview = this.saveOrUpdateInterview.bind(this);
+
+       /* this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);*/
     }
 
-   
+ /*   handleChange(event) {
+        let input = this.state.input;
+        input[event.target.interviewCandidateName] = event.target.value;
+      
+        this.setState({
+          input
+        });
+      }
+      handleSubmit(event) {
+        event.preventDefault();
+
+        if(this.validate()){
+            console.log(this.state);
+      
+            let input = {};
+            input["interviewCandidateName"] = "";
+            input["interviewStartTime"] = "";
+            input["department"] = "";
+            input["email"] = "";
+            this.setState({input:input});
+      
+            alert('Successfully done');
+        }
+      }
+      validate(){
+        let input = this.state.input;
+        let errors = {};
+        let isValid = true;
+    
+        if (!input["interviewCandidateName"]) {
+          isValid = false;
+          errors["interviewCandidateName"] = "Please enter name";
+        }
+    
+       
+    
+        if (!input["interviewStartTime"]) {
+          isValid = false;
+          errors["interviewStartTime"] = "Please enter your starttime as a number.";
+        }
+    
+        if (typeof input["interviewStartTime"] !== "undefined") {
+            
+          var pattern = new RegExp(/^[0-9\b]+$/);
+          if (!pattern.test(input["interviewStartTime"])) {
+            isValid = false;
+            errors["interviewStartTime"] = "Please enter only number.";
+          }else {
+            isValid = false;
+            errors["interviewStartTime"] = "Please enter valid start time.";
+          }
+        }
+
+        if (!input["email"]) {
+            isValid = false;
+            errors["email"] = "Please enter your email Address.";
+          }
+      
+          if (typeof input["email"] !== "undefined") {
+              
+            var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+))|("[\w-\s]+")([\w-]+(?:\.[\w-]+)))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+            if (!pattern.test(input["email"])) {
+              isValid = false;
+              errors["email"] = "Please enter valid email address.";
+            }
+          }
+    
+    
+        this.setState({
+          errors: errors
+        });
+    
+        return isValid;
+    }
+   */
     componentDidMount(){
 
         if(this.state.interviewId === '_add'){
@@ -40,7 +128,7 @@ class CreateInterviewComponent extends Component {
                 let interview = res.data;
                 this.setState(
                     {
-                //   interviewId: interview.interviewId,   
+              
                     interviewCandidateName: interview.interviewCandidateName,
                     interviewStartTime: interview.interviewStartTime,
                     interviewEndTime: interview.interviewEndTime,
@@ -54,7 +142,7 @@ class CreateInterviewComponent extends Component {
     }
     saveOrUpdateInterview = (i) => {
         i.preventDefault();
-        let interview = { /*interviewId: this.state.interviewId, */ interviewCandidateName: this.state.interviewCandidateName,interviewStartTime: this.state.interviewStartTime,interviewEndTime: this.state.interviewEndTime,interviewDate: this.state.interviewDate,interviewLocation: this.state.interviewLocation, department: this.state.department, email: this.state.email};
+        let interview = {interviewCandidateName: this.state.interviewCandidateName,interviewStartTime: this.state.interviewStartTime,interviewEndTime: this.state.interviewEndTime,interviewDate: this.state.interviewDate,interviewLocation: this.state.interviewLocation, department: this.state.department, email: this.state.email};
         console.log('interview => ' + JSON.stringify(interview));
 
         if(this.state.interviewId === '_add'){
@@ -68,11 +156,6 @@ class CreateInterviewComponent extends Component {
             });
         }
     }
-    
-
-   /* changeInterviewIdHandler= (event) => {
-        this.setState({interviewId: event.target.value});
-    }*/
 
     changeInterviewCandidateNameHandler= (event) => {
         this.setState({interviewCandidateName: event.target.value});
